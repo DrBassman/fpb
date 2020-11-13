@@ -1,0 +1,23 @@
+{% extends 'fpb/base.html' %}
+{% block content %}
+    <table class="table table-sm table-bordered table-hover table-striped">
+        <tr>
+            <th>Fax Machine Owner</th>
+            <th>Fax #</th>
+        </tr>
+        {% for m in machines %}
+            <tr>
+                <td>{{ m.faxowner }}</td>
+                <td>{{ m.faxnumber }} <button type="button" class="btn btn-sm btn-outline-primary" onclick='{var $temp = $("<input>"); $("body").append($temp); $temp.val("{{ m.faxnumber }}").select(); document.execCommand("copy"); $temp.remove(); }'>Copy</button></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+function copy_note_txt() {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($('#note_txt').val()).select();
+    document.execCommand("copy");
+    $temp.remove();
+  }
+  
