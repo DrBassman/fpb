@@ -1,26 +1,37 @@
-{% load static %}
-<!doctype html>
-<html lang="en" dir="ltr">
+{% load static %}<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Fax Phone Book</title>
+        <link rel="stylesheet" href="{% static 'css/foundation.css' %}">
+        <link rel="stylesheet" href="{% static 'css/app.css' %}">
     </head>
     <body>
-        <div class="container">
-            <div class="jumbotron">
-                <a href="{% url 'admin:index' %}"><img class="rounded float-right" src="{% static 'lol-logo.png' %}" alt="Logo"></a>
-                <h1>Fax Phone Book</h1>
-                <p>Look up a fax number that is frequently used.</p>
+        <div class="grid-container">
+            <div class="callout secondary">
+                <div class="grid-x grid-padding-x">
+                    <div class="cell">
+                        <a href="{% url 'admin:index' %}"><img class="float-right" src="{% static 'lol-logo.png' %}" alt="Logo"></a>
+                        <h1>Fax Phone Book</h1>
+                        <p>Look up a fax number that is frequently used.</p>
+                    </div>
+                </div>
             </div>
+            <div class="grid-x grid-padding-x">
+                <div class="cell">
             {% block content %}
             {% endblock %}
+                </div>
+            </div>
         </div>
-        <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
-        <script src="{% static 'js/popper.min.js' %}"></script>
-        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
         {% block script %}
+        <script src="{% static 'js/vendor/jquery.js' %}"></script>
+        <script src="{% static 'js/vendor/what-input.js' %}"></script>
+        <script src="{% static 'js/vendor/foundation.min.js' %}"></script>
+        <script src="{% static 'js/app.js' %}"></script>
         {% endblock %}
     </body>
 </html>
